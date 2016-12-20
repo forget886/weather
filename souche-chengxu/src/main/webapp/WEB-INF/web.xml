@@ -5,7 +5,15 @@
 
 
 
-
+	<servlet>
+		<servlet-name>TimeServlet</servlet-name>
+		<servlet-class>com.wuxi.web.TimeServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>TimeServlet</servlet-name>
+		<url-pattern>/time.jsp</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 
