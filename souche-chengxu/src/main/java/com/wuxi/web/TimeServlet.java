@@ -31,13 +31,17 @@ public class TimeServlet extends HttpServlet {
 			/time.jsp
 			t=1&e=2
 		  */
-		 
+		 //告诉浏览器编码类型
 		 resp.setHeader("content-type", "text/html;charset=utf-8");
+		 //write中字符转化为字节
+		 resp.setCharacterEncoding("utf-8");
  		 PrintWriter write = resp.getWriter();
 		 Date today = new Date();
 		 write.println("<html>"+
 				 "<meta http-equiv=\"charset\" content=\"utf-8\">"+
 				 "<body><p>" + today +"</p><p>先生你好</p></body></html>");
+		 write.flush();
+		 write.close();
 		 
 	 }
 	 
