@@ -39,7 +39,7 @@ public class TimeServlet extends HttpServlet {
 		 Date today = new Date();
 		 write.println("<html>"+
 				 "<meta http-equiv=\"charset\" content=\"utf-8\">"+
-				 "<body><p>" + today +"</p><p>先生你好</p></body></html>");
+				 "<body><p>" + today +"</p><p>先生你好啊</p></body></html>");
 		 write.flush();
 		 write.close();
 		 

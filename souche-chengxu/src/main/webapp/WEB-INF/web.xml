@@ -12,7 +12,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>TimeServlet</servlet-name>
-		<url-pattern>/time.jsp</url-pattern>
+		<url-pattern>/time</url-pattern>
 	</servlet-mapping>
 
 </web-app>

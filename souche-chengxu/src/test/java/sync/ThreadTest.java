@@ -49,4 +49,10 @@ public class ThreadTest {
 		
 	}
 	
+	@Test
+	public void str(){
+		String str = "：：：";
+		System.out.println(str.length());
+	}
+	
 }
