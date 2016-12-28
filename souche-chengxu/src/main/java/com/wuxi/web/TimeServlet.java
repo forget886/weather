@@ -21,10 +21,13 @@ public class TimeServlet extends HttpServlet {
 		 
 		 System.out.println(req.getRequestURL());
 		 System.out.println(req.getRequestURI());
+		 System.out.println(req.getRemoteAddr());
 		 System.out.println(req.getContextPath());
 		 System.out.println(req.getServletPath());
 		 System.out.println(req.getQueryString());
 		 /**
+		  * request:http://localhost:8080/chengxu/time.jsp?t=1&e=2
+		  * 
 		  * http://localhost:8080/chengxu/time.jsp
 			/chengxu/time.jsp
 			/chengxu
