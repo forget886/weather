@@ -20,6 +20,7 @@ public class TimeServlet extends HttpServlet {
 				throws ServletException, IOException{
 		 
 		 System.out.println(req.getRequestURL());
+		 System.out.println(req.getHeader("host"));
 		 System.out.println(req.getRequestURI());
 		 System.out.println(req.getRemoteAddr());
 		 System.out.println(req.getContextPath());

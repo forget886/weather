@@ -18,6 +18,15 @@
 		<url-pattern>/time</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>beer</servlet-name>
+		<servlet-class>com.wuxi.web.BeerServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>beer</servlet-name>
+		<url-pattern>/select.do</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
 
 
