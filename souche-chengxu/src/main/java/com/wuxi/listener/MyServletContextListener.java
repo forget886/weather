@@ -1,0 +1,16 @@
+package com.wuxi.listener;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+public class MyServletContextListener implements ServletContextListener{
+
+	public void contextInitialized(ServletContextEvent sce) {
+		
+	}
+
+	public void contextDestroyed(ServletContextEvent sce) {
+		
+	}
+
+}

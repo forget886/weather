@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,15 +17,25 @@ public class TimeServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	 protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	
+	 @Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		System.out.println("init param, adress: " + getServletConfig().getInitParameter("address"));
+		System.out.println("context param,address: " + getServletContext().getInitParameter("address"));
+		
+	}
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 				throws ServletException, IOException{
 		 
-		 System.out.println(req.getRequestURL());
-		 System.out.println(req.getHeader("host"));
-		 System.out.println(req.getRequestURI());
-		 System.out.println(req.getRemoteAddr());
-		 System.out.println(req.getContextPath());
-		 System.out.println(req.getServletPath());
+		 System.out.println("url: " + req.getRequestURL());
+		 System.out.println("host: " + req.getHeader("host"));
+		 System.out.println(req.getScheme()+" "+req.getServerName()+" "+req.getServerPort());
+		 System.out.println("uri: " + req.getRequestURI());
+		 System.out.println("user ip: " + req.getRemoteAddr());
+		 System.out.println("contextpath: " + req.getContextPath());
+		 System.out.println("servletpath: " + req.getServletPath());
 		 System.out.println(req.getQueryString());
 		 /**
 		  * request:http://localhost:8080/chengxu/time.jsp?t=1&e=2
@@ -36,14 +47,15 @@ public class TimeServlet extends HttpServlet {
 			t=1&e=2
 		  */
 		 //告诉浏览器编码类型
-		 resp.setHeader("content-type", "text/html;charset=utf-8");
+		 //resp.setHeader("content-type", "");
 		 //write中字符转化为字节
-		 resp.setCharacterEncoding("utf-8");
+		 //resp.setCharacterEncoding("utf-8");
+		 resp.setContentType("text/html;charset=utf-8");
  		 PrintWriter write = resp.getWriter();
 		 Date today = new Date();
 		 write.println("<html>"+
 				 "<meta http-equiv=\"charset\" content=\"utf-8\">"+
-				 "<body><p>" + today +"</p><p>先生你好啊</p></body></html>");
+				 "<body><p>" + today +"</p><p>先生你好啊</zp></body></html>");
 		 write.flush();
 		 write.close();
 		 

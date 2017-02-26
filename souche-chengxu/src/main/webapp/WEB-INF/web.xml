@@ -7,10 +7,23 @@
 		<error-code>404</error-code>
 		<location>/WEB-INF/common/error.jsp</location>
 	</error-page>
-
+	
+	<context-param>
+		<param-name>address</param-name>
+		<param-value>大马路200号</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>com.wuxi.listener.MyServletContextListener</listener-class>
+	</listener>
+	
 	<servlet>
 		<servlet-name>TimeServlet</servlet-name>
 		<servlet-class>com.wuxi.web.TimeServlet</servlet-class>
+		<init-param>
+			<param-name>address</param-name>
+			<param-value>大街100号</param-value>
+		</init-param>
 	</servlet>
 	
 	<servlet-mapping>
@@ -25,6 +38,15 @@
 	<servlet-mapping>
 		<servlet-name>beer</servlet-name>
 		<url-pattern>/select.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>download</servlet-name>
+		<servlet-class>com.wuxi.web.FileDownServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>download</servlet-name>
+		<url-pattern>/download.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

@@ -8,5 +8,11 @@
 </head>
 <body>
 	<p>name:${name}</p>
+	<p>color:${color}</p>
+	<p id="area">地址:<span id="addr"></span></p>
 </body>
+<script type="text/javascript">
+	document.getElementById("addr").innerText = "${addr}";
+	console.log("${addr}");
+</script>
 </html>
