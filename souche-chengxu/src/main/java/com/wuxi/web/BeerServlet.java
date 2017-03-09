@@ -26,14 +26,15 @@ public class BeerServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		ServletContext context = req.getSession().getServletContext();
-		System.out.println("context: " + context.getContextPath());
+		//ServletContext context = req.getSession().getServletContext();
+		//System.out.println("context: " + context.getContextPath());
 		String color = req.getParameter("color");
 		String name = "张三";
 		req.setAttribute("name", name);
 		req.setAttribute("color", color);
 		//req.setAttribute("addr", "大道99号");
 		getServletContext().setAttribute("addr", getServletContext().getInitParameter("address"));
+		System.out.println(req.getSession().getId());
 //		Cookie[] cookies = req.getCookies();
 //		for(Cookie c:cookies){
 //			System.out.println(c.getName());
@@ -42,11 +43,11 @@ public class BeerServlet extends HttpServlet {
 //			System.out.println(c.getMaxAge());
 //			System.out.println(c.getComment());
 //		}
-//		Cookie cookie1 = new Cookie("name", "a");
-//		cookie1.setMaxAge(1*60*60);
+		Cookie cookie1 = new Cookie("name", "a");
+		cookie1.setMaxAge(60*60);
 //		cookie1.setPath("/chengxu/select.do");
 //		Cookie cookie2 = new Cookie("age", "1");
-//		resp.addCookie(cookie1);
+		resp.addCookie(cookie1);
 //		resp.addCookie(cookie2);
 		RequestDispatcher view =  req.getRequestDispatcher("/jsp/beers.jsp");
 		view.forward(req, resp);

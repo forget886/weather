@@ -28,7 +28,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>TimeServlet</servlet-name>
-		<url-pattern>/time</url-pattern>
+		<url-pattern>/时间</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

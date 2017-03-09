@@ -2,6 +2,7 @@ package com.wuxi.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.Date;
 
 import javax.servlet.ServletConfig;
@@ -9,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class TimeServlet extends HttpServlet {
 
@@ -30,13 +32,18 @@ public class TimeServlet extends HttpServlet {
 				throws ServletException, IOException{
 		 
 		 System.out.println("url: " + req.getRequestURL());
-		 System.out.println("host: " + req.getHeader("host"));
+		 System.out.println("host: " + req.getHeader("host") + req.getRemoteHost());
 		 System.out.println(req.getScheme()+" "+req.getServerName()+" "+req.getServerPort());
 		 System.out.println("uri: " + req.getRequestURI());
 		 System.out.println("user ip: " + req.getRemoteAddr());
 		 System.out.println("contextpath: " + req.getContextPath());
 		 System.out.println("servletpath: " + req.getServletPath());
-		 System.out.println(req.getQueryString());
+		 if (req.getQueryString() != null) {
+			 String query = URLDecoder.decode(req.getQueryString(), "utf-8");
+			 System.out.println("query: " + query);
+
+		 }
+		 HttpSession session = req.getSession();
 		 /**
 		  * request:http://localhost:8080/chengxu/time.jsp?t=1&e=2
 		  * 
@@ -53,9 +60,12 @@ public class TimeServlet extends HttpServlet {
 		 resp.setContentType("text/html;charset=utf-8");
  		 PrintWriter write = resp.getWriter();
 		 Date today = new Date();
-		 write.println("<html>"+
-				 "<meta http-equiv=\"charset\" content=\"utf-8\">"+
-				 "<body><p>" + today +"</p><p>先生你好啊</zp></body></html>");
+		 write.println("<html>"
+				 +"<meta http-equiv=\"charset\" content=\"utf-8\">"
+				 +"<body><p>" + today +"</p>" 
+				 +"<a href=\"" + resp.encodeURL(req.getContextPath()+"/select.do") + "\">click me</a>"
+				 +"<p>先生你好啊</p>"
+				 + "</body></html>");
 		 write.flush();
 		 write.close();
 		 

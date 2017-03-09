@@ -2,6 +2,7 @@ package com.wuxi.service;
 
 public class Say {
 
+	private static int count = 1;
 	public String getAdvice(int option){
 		String food = "";
 		switch (option) {
@@ -15,5 +16,9 @@ public class Say {
 		}
 		
 		return food;
+	}
+	
+	public static int getCount(){
+		return ++count;
 	}
 }
