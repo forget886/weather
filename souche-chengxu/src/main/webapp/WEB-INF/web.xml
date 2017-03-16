@@ -28,7 +28,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>TimeServlet</servlet-name>
-		<url-pattern>/时间</url-pattern>
+		<url-pattern>/time</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -49,6 +49,13 @@
 		<url-pattern>/download.do</url-pattern>
 	</servlet-mapping>
 	
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<!-- <scripting-invalid>true</scripting-invalid> -->
+			<!-- <el-ignored>true</el-ignored> -->
+		</jsp-property-group>
+	</jsp-config>
 </web-app>
 
 

@@ -33,7 +33,7 @@ public class TimeServlet extends HttpServlet {
 		 
 		 System.out.println("url: " + req.getRequestURL());
 		 System.out.println("host: " + req.getHeader("host") + req.getRemoteHost());
-		 System.out.println(req.getScheme()+" "+req.getServerName()+" "+req.getServerPort());
+		 System.out.println(req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/");
 		 System.out.println("uri: " + req.getRequestURI());
 		 System.out.println("user ip: " + req.getRemoteAddr());
 		 System.out.println("contextpath: " + req.getContextPath());

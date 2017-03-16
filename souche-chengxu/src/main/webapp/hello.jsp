@@ -1,8 +1,9 @@
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<link rel="icon" href="http://assets.souche.com/shop/assets/sso/favicon.ico" type="image/x-icon">
+	<title>首页</title>
 	<style type="text/css">
 		.button{
 			padding:.3em .8em;
@@ -19,6 +20,7 @@
 	
 </head>
 <body>
+  <%@ include file="jsp/head.jsp"%>
 	<div style="text-align: center">
 		<div>
 			<form onsubmit="cleaar()"  action="select.do" method="POST">
@@ -41,14 +43,18 @@
 		
 		<div id="message" style="display:none"></div>
 	</div>
-	<script type="text/javascript">
+	<%@ include file="jsp/foot.jsp"%>
+	
+</body>
+<script type="text/javascript">
+		console.log("basePath:" + '${basePath}');
 		function check(){
 			var path = document.getElementById("path").value;
 			var filename = document.getElementById("filename").value;
 			//console.log(path + " : " + filename);
 			if(path == '' || filename == ''){
 				document.getElementById("message").style.display = "block";
-				document.getElementById("message").innerHTML = "<span style=\"color:red;font-size:14px\">请填写文件路径</span>";
+				document.getElementById("message").innerHTML = "<span style=\"color:red;font-size:14px\">找不到</span>";
 				return false;
 			}else{
 				
@@ -70,12 +76,10 @@
 			}
 		}
 		
-		/* 不要起clear这种函数名 */
+		/* 不要起chear函数名 */
 		function cleaar(){
 			console.log('clear');
 		}
-	
+
 	</script>
-	
-</body>
 </html>

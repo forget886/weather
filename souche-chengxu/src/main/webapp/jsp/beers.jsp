@@ -1,16 +1,16 @@
-<%@ page import="com.wuxi.service.Say"  language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page  pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<link rel="icon" href="http://assets.souche.com/shop/assets/sso/favicon.ico" type="image/x-icon">
+	<title>啤酒</title>
 </head>
 <body>
+	<%@ include file="head.jsp" %>
 	<p>name:${name}</p>
-	<p>color:${color}</p>
+	<p>color:${color}${param.color}</p>
 	<p id="area">地址:<span id="addr"></span></p>
-	<p>计数：<%= Say.getCount()%></p>
+	<%@ include file="/jsp/foot.jsp"%>
 </body>
 <script type="text/javascript">
 	document.getElementById("addr").innerText = "${addr}";

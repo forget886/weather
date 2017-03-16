@@ -34,7 +34,7 @@ public class BeerServlet extends HttpServlet {
 		req.setAttribute("color", color);
 		//req.setAttribute("addr", "大道99号");
 		getServletContext().setAttribute("addr", getServletContext().getInitParameter("address"));
-		System.out.println(req.getSession().getId());
+		//System.out.println(req.getSession().getId());
 //		Cookie[] cookies = req.getCookies();
 //		for(Cookie c:cookies){
 //			System.out.println(c.getName());
