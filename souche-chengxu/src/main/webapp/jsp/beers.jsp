@@ -1,4 +1,5 @@
 <%@ page  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,9 @@
 	<p>name:${name}</p>
 	<p>color:${color}${param.color}</p>
 	<p id="area">地址:<span id="addr"></span></p>
-	
+	<c:if test="${color eq '红色' }">
+		大红
+	</c:if>
 	<%@ include file="/jsp/foot.jsp"%>
 </body>
 <script type="text/javascript">
