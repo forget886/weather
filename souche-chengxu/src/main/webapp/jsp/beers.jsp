@@ -12,7 +12,11 @@
 	<p>color:${color}${param.color}</p>
 	<p id="area">地址:<span id="addr"></span></p>
 	<c:if test="${color eq '红色' }">
-		大红
+		<c:set var="wd" value="中国 银行"/>
+		<c:url value="http://www.baidu.com/s" var="inputurl">
+			<c:param name="wd" value="${wd}"></c:param>
+		</c:url>
+		<p><a href="${inputurl}" >百度</a></p>
 	</c:if>
 	<%@ include file="/jsp/foot.jsp"%>
 </body>
