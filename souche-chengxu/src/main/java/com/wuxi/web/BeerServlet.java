@@ -26,6 +26,7 @@ public class BeerServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
+		System.out.println("认证"+req.isUserInRole("admi"));
 		//ServletContext context = req.getSession().getServletContext();
 		//System.out.println("context: " + context.getContextPath());
 		String color = req.getParameter("color");
