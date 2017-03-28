@@ -2,6 +2,7 @@ package com.wuxi.web;
 
 import java.io.IOException;
 
+import javax.print.attribute.DocAttribute;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.wuxi.dao.LogEventDao;
 
 public class BeerServlet extends HttpServlet {
 
@@ -50,9 +53,17 @@ public class BeerServlet extends HttpServlet {
 //		Cookie cookie2 = new Cookie("age", "1");
 		resp.addCookie(cookie1);
 //		resp.addCookie(cookie2);
+		
+		visitDB();
 		RequestDispatcher view =  req.getRequestDispatcher("/jsp/beers.jsp");
 		view.forward(req, resp);
 		//resp.sendRedirect("time");
+	}
+	
+	public void visitDB(){
+		LogEventDao dao = new LogEventDao();
+		dao.query("select * from logging_event", null);
+		dao.query("select * from logging_event where level_string=?", new Object[]{"ERROR"});
 	}
 	
 	 
