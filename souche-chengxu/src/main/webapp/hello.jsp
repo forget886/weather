@@ -29,6 +29,7 @@
 					<option value="黄色">yellow</option>
 					<option value="蓝色">blue</option>
 				</select>
+				<input type="text" name="name" />
 				<input type="submit" value="提交" class="button"/>
 			</form>
 		</div>

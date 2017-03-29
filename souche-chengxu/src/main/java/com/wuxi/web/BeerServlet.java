@@ -1,6 +1,9 @@
 package com.wuxi.web;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import javax.print.attribute.DocAttribute;
 import javax.servlet.RequestDispatcher;
@@ -11,6 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
+
+import com.mysql.jdbc.Buffer;
 import com.wuxi.dao.LogEventDao;
 
 public class BeerServlet extends HttpServlet {
@@ -30,9 +36,30 @@ public class BeerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		System.out.println("认证"+req.isUserInRole("admi"));
+		
 		//ServletContext context = req.getSession().getServletContext();
 		//System.out.println("context: " + context.getContextPath());
+		
+//		System.out.println(req.getContentLength());
+//		BufferedReader reader = req.getReader();
+//		StringBuilder sb = new StringBuilder();
+//		String str = null;
+//		while((str = reader.readLine()) != null){
+//			sb.append(str);
+//		}
+//		System.out.println("body: " + sb.toString());
+//		
+//		InputStream body = req.getInputStream();
+//		StringBuilder sb = new StringBuilder();
+//		byte[] bytes = new byte[1024];
+//		int len = 0;
+//		while((len = body.read(bytes)) != -1){
+//			sb.append(new String(bytes, 0, len,"utf-8"));
+//		}
+//		System.out.println("body:" + sb.toString());
+		//getReader getInputStream getParameter 是互斥的，一个执行会干扰其他另外两个取回body数据
 		String color = req.getParameter("color");
+		
 		String name = "张三";
 		req.setAttribute("name", name);
 		req.setAttribute("color", color);
