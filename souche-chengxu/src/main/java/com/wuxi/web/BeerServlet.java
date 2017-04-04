@@ -1,22 +1,14 @@
 package com.wuxi.web;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
-import javax.print.attribute.DocAttribute;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
-
-import com.mysql.jdbc.Buffer;
 import com.wuxi.dao.LogEventDao;
 
 public class BeerServlet extends HttpServlet {
