@@ -43,6 +43,8 @@ public class TimeServlet extends HttpServlet {
 			 System.out.println("query: " + query);
 
 		 }
+		 getServletContext().setAttribute("name", "zhang");
+		 System.out.println("name: " + req.getAttribute("name"));
 		 HttpSession session = req.getSession();
 		 /**
 		  * request:http://localhost:8080/chengxu/time.jsp?t=1&e=2
