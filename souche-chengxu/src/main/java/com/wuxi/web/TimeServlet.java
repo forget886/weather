@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,6 +60,12 @@ public class TimeServlet extends HttpServlet {
 		 //resp.setHeader("content-type", "");
 		 //write中字符转化为字节
 		 //resp.setCharacterEncoding("utf-8");
+		 Cookie cookie1 = new Cookie("name", "aa");
+		 cookie1.setMaxAge(60*60);
+		 cookie1.setDomain(".souche-inc.com");
+//			cookie1.setPath("/chengxu/select.do");
+//			Cookie cookie2 = new Cookie("age", "1");
+		 resp.addCookie(cookie1);
 		 resp.setContentType("text/html;charset=utf-8");
  		 PrintWriter write = resp.getWriter();
 		 Date today = new Date();
