@@ -3,6 +3,7 @@
 <html>
 <head>
 	<link rel="icon" href="http://assets.souche.com/shop/assets/sso/favicon.ico" type="image/x-icon">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<title>首页</title>
 	<style type="text/css">
 		.button{
@@ -44,11 +45,33 @@
 		
 		<div id="message" style="display:none"></div>
 	</div>
+	<div id="time">
+		<button type="button" onclick="getTime()">时间</button>
+	</div>
 	<%@ include file="jsp/foot.jsp"%>
 	
 </body>
 <script type="text/javascript">
 		console.log("basePath:" + '${basePath}');
+		function getTime(){
+			$.ajax({
+				url: "time",
+				xhrFields: {
+				    withCredentials: true
+				},
+				success: function(data) {
+					$('#time').html(data);
+					$.ajax({
+						url:"http://www.baidu.com",
+						success:function(data){
+							console.log(data);
+						}
+						
+					});
+				}
+			});
+		}
+		
 		function check(){
 			var path = document.getElementById("path").value;
 			var filename = document.getElementById("filename").value;

@@ -60,12 +60,15 @@ public class TimeServlet extends HttpServlet {
 		 //resp.setHeader("content-type", "");
 		 //write中字符转化为字节
 		 //resp.setCharacterEncoding("utf-8");
-		 Cookie cookie1 = new Cookie("name", "aa");
+		 Cookie cookie1 = new Cookie("addr", "beijing");
 		 cookie1.setMaxAge(60*60);
-		 cookie1.setDomain(".souche-inc.com");
+		 //浏览器不会跨域添加cookie 
+		 //具体现象就是你发现在响应中已经有set-cookie的响应头了并且有值，而且浏览器也会有信息显示已接收到cookie了，但是就是在cookie中找不到。
+		 cookie1.setDomain(".baidu.com");
 //			cookie1.setPath("/chengxu/select.do");
 //			Cookie cookie2 = new Cookie("age", "1");
 		 resp.addCookie(cookie1);
+		 resp.addHeader("Access-Control-ALLOW-Credentials", "true");
 		 resp.setContentType("text/html;charset=utf-8");
  		 PrintWriter write = resp.getWriter();
 		 Date today = new Date();
