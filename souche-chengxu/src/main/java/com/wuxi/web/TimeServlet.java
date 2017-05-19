@@ -68,7 +68,6 @@ public class TimeServlet extends HttpServlet {
 //			cookie1.setPath("/chengxu/select.do");
 //			Cookie cookie2 = new Cookie("age", "1");
 		 resp.addCookie(cookie1);
-		 resp.addHeader("Access-Control-ALLOW-Credentials", "true");
 		 resp.setContentType("text/html;charset=utf-8");
  		 PrintWriter write = resp.getWriter();
 		 Date today = new Date();
