@@ -45,7 +45,7 @@ public class VisitFilter implements Filter {
 	                    out.print(json);
 	                    out.flush()
 	                    out.close();
-	              如果commit了 之后response添加请求头不会生效。
+	              如果commit了 之后response添加请求头不会生效,这种情况要在doFilter之前添加。
 		 */
 		res.addHeader("Set-Cookie", "token2=token2;Path=/;Domain=.souche-inc.com;Max-Age=3600");
 		System.out.println("request over,cost " + (System.currentTimeMillis() - start) + " ms");
