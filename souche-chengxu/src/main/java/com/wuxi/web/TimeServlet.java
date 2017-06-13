@@ -31,6 +31,7 @@ public class TimeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 				throws ServletException, IOException{
+		System.out.println(getServletContext().getRealPath("/"));
 		System.out.println("认证"+req.isUserInRole("admin"));
 		 System.out.println("url: " + req.getRequestURL());
 		 System.out.println("host: " + req.getHeader("host") + req.getRemoteHost());
