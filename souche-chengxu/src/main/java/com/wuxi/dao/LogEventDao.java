@@ -19,7 +19,9 @@ public class LogEventDao {
 	
 	public Connection connect(){
 		try {
+			//注册驱动
 			Class.forName(driver);
+			//获取连接
 			connection = DriverManager.getConnection(dburl, user, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -49,6 +51,7 @@ public class LogEventDao {
 				}
 			}else{
 				preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+				preparedStatement.setFetchSize(Integer.MIN_VALUE);
 				for(int i=1; i<=params.length; i++){
 					preparedStatement.setString(i, params[i-1].toString());
 				}

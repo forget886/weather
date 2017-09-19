@@ -85,6 +85,8 @@ public class BeerServlet extends HttpServlet {
 		dao.query("select * from logging_event where level_string=?", new Object[]{"ERROR"});
 	}
 	
-	 
+	 public static void main(String[] args) {
+		new BeerServlet().visitDB();
+	}
 
 }
