@@ -35,6 +35,8 @@ public class LogEventDao {
 				this.connect();
 			}
 			System.out.println("是否默认提交：" + connection.getAutoCommit());
+			connection.setAutoCommit(false);
+			connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
 		} catch (SQLException  e) {
 			e.printStackTrace();
 		}
@@ -60,7 +62,13 @@ public class LogEventDao {
 					System.out.println("行：" + resultSet.getRow() + " " + resultSet.getLong(1));
 				}
 			}
+			connection.commit();
 		} catch (SQLException e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}finally {
 			try {
