@@ -63,6 +63,7 @@ public class TimeServlet extends HttpServlet {
 		 //resp.setCharacterEncoding("utf-8");
 		 Cookie cookie1 = new Cookie("addr", "beijing");
 		 cookie1.setMaxAge(60*60);
+		 //response.setHeader("Set-Cookie", cookieName+"="+sid+";Path=/;Domain="+cookieDomain+";Max-Age="+ssoExpire);
 		 //浏览器不会跨域添加cookie 
 		 //具体现象就是你发现在响应中已经有set-cookie的响应头了并且有值，而且浏览器也会有信息显示已接收到cookie了，但是就是在cookie中找不到。
 		 cookie1.setDomain(".baidu.com");
