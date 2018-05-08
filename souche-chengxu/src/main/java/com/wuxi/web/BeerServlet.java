@@ -73,7 +73,7 @@ public class BeerServlet extends HttpServlet {
 		resp.addCookie(cookie1);
 //		resp.addCookie(cookie2);
 		
-		visitDB();
+		//visitDB();
 		RequestDispatcher view =  req.getRequestDispatcher("/jsp/beers.jsp");
 		view.forward(req, resp);
 		//resp.sendRedirect("time");

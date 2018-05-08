@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%@ include file="head.jsp" %>
+	<p>${request.contextPath}</p>
 	<p>name:${name}</p>
 	<p>color:${color}${param.color}</p>
 	<p id="area">地址:<span id="addr"></span></p>
