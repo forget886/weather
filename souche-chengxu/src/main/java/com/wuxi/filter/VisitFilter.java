@@ -27,6 +27,7 @@ public class VisitFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		long start = System.currentTimeMillis();
 		System.out.println("request url:"+req.getRequestURL());
+		
 //		String clientOrigin = req.getHeader("Origin");
 //		//跨域设置cookie必须设置Access-Control-Allow-Origin为特定域名，不能为*
 //		if(clientOrigin != null && (urlAllowed.indexOf(clientOrigin) != -1)){
@@ -39,7 +40,8 @@ public class VisitFilter implements Filter {
 //		resp.setHeader("Access-Control-Max-Age", "0");
 //		resp.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,_security_token");
 		res.addHeader("Set-Cookie", "token1=token1;Path=/;Domain=.souche-inc.com;Max-Age=3600");
-		chain.doFilter(request, response);
+		//通过装饰模式可以对request的参数进行更改
+		chain.doFilter(new RequestWrapper((HttpServletRequest)request), response);
 		/**
 		 * 代码中：PrintWriter out = response.getWriter();
 	                    out.print(json);
